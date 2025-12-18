@@ -10,11 +10,13 @@ The console supports two fixed high-fidelity resolutions. A cartridge **MUST** d
 
 | Mode Name | Resolution | Aspect Ratio | Colour Depth | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **MODE_4_3** | **800 × 600** | 4:3 | 32‑bit RGBA | Classic SVGA feel; ideal for retro-PC styled interfaces and games. |
-| **MODE_16_9** | **960 × 540** | 16:9 | 32‑bit RGBA | qHD resolution; perfect integer scaling (×2) to Full HD (1920×1080). |
+| **LORES_4_3** | **400 × 300** | 4:3 | 32‑bit RGBA | Low resolution 4:3; ideal for classic 8/16-bit feel. |
+| **HIRES_4_3** | **800 × 600** | 4:3 | 32‑bit RGBA | High resolution 4:3; ideal for crisp text and detailed interfaces. |
+| **LORES_16_9** | **480 × 270** | 16:9 | 32‑bit RGBA | Low resolution 16:9; modern widescreen with retro pixel density. |
+| **HIRES_16_9** | **960 × 540** | 16:9 | 32‑bit RGBA | High resolution 16:9; qHD resolution. |
 
 ### Presentation & Scaling
-When presenting to the host display, the runtime **SHOULD** use integer scaling (nearest-neighbour or sharp bilinear) to preserve crisp edges. The runtime **MUST** letter-box or pillar-box the content to maintain the strictly defined aspect ratio. Non‑uniform stretching is strictly prohibited to ensure artistic integrity.
+When presenting to the host display, the runtime **MUST** use nearest-neighbor integer scaling to preserve crisp edges without any filtering. The runtime **MUST** letter-box or pillar-box the content to maintain the strictly defined aspect ratio. Non‑uniform stretching is strictly prohibited to ensure artistic integrity.
 
 ## 1.2 Colour Pipeline
 

@@ -32,7 +32,7 @@ This section defines the virtual hardware parameters.
 | `title` | String | The name of your game. |
 | `author` | String | Your name or studio. |
 | `version` | String | Semantic version (e.g., `1.0.2`). |
-| **`mode`** | `MODE_4_3` \| `MODE_16_9` | Sets resolution to **800x600** or **960x540**. |
+| **`mode`** | `LORES_4_3` \| `HIRES_4_3` \| `LORES_16_9` \| `HIRES_16_9` | Sets the resolution (400x300, 800x600, 480x270, or 960x540). |
 | **`fps`** | `30` \| `60` \| `120` | Target simulation frequency for `update()`. |
 | `entry` | Path | Path to the primary script (default: `main.nut`). |
 | **`determinism`** | `strict` \| `best` | `strict` enforces bit-perfect timing and RNG. |
@@ -66,7 +66,7 @@ Settings that affect how the host OS displays the console window.
 title = "Neon Racer 2000"
 author = "CyberLabs"
 version = "1.0.0"
-mode = "MODE_16_9"
+mode = "HIRES_16_9"
 fps = 60
 entry = "main.nut"
 determinism = "strict"

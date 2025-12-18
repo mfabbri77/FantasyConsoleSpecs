@@ -9,7 +9,7 @@ The renderer is resolution-independent, using floating-point coordinates. It han
 The coordinate system origin `(0,0)` is at the **top-left** corner.
 *   **+X** extends to the right.
 *   **+Y** extends downwards.
-*   Units are logical pixels. In `MODE_4_3`, the bottom-right is `(800, 600)`.
+*   Units are logical pixels. In `HIRES_4_3`, the bottom-right is `(800, 600)`.
 
 ### Basic Types
 

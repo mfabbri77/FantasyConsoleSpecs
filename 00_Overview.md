@@ -18,7 +18,7 @@ Each chapter lives in its own Markdown file. The documentation has been reorgani
 
 | Chapter | File | Description |
 | :--- | :--- | :--- |
-| 1 | **01_HardwareSpecification.md** | **Hardware & Architecture:** System constraints, the 800×600 and 960×540 video modes, colour pipelines, and memory budgets. |
+| 1 | **01_HardwareSpecification.md** | **Hardware & Architecture:** System constraints, the supported video modes (LORES/HIRES for 4:3 and 16:9), colour pipelines, and memory budgets. |
 | 2 | **02_Lifecycle.md** | **Script Lifecycle:** The game loop (`init`, `update`, `draw`), event callbacks, hot-reloading, and error handling strategies. |
 | 3 | **03_Graphics2D.md** | **2D Vector Engine:** The retained-mode API for paths, paints, strokes, and compositing. Defines the scene graph for 2D. |
 | 4 | **04_TextAPI.md** | **Typography:** Advanced text rendering, font loading, shaping, and layout within the retained scene. |

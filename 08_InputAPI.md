@@ -67,7 +67,7 @@ if (math.sqrt(dx*dx + dy*dy) < 0.2) { dx=0; dy=0; }
 ## 8.3 Mouse Input
 
 The mouse is treated as a shared device (Player 0).
-*   **Coordinates:** Automatically scaled to the logical resolution (`MODE_4_3` or `MODE_16_9`). `(0,0)` is always Top-Left.
+*   **Coordinates:** Automatically scaled to the logical resolution (e.g., `HIRES_4_3` or `LORES_16_9`). `(0,0)` is always Top-Left.
 
 ```c
 local m = input.mouse();
