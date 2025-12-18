@@ -187,7 +187,30 @@ anim.track(anim.prop(cubeNode).rotation, [
 anim.play({ loop=true });
 ```
 
-## 6.9 Example: A Complete 3D Scene
+## 6.9 Instanced Rendering (Particles)
+
+To efficiently render thousands of identical objects (like stars, rain, or debris) without the overhead of thousands of individual `MeshNode` objects, uses the `Particles` system.
+
+```c
+// Create a particle system using a base mesh
+local stars = gfx3d.Particles(starMesh, material);
+
+// Pre-allocate capacity (essential for performance)
+stars.resize(10000);
+
+// Update data in bulk
+// 'positions' must be an array of Vec3
+// 'colors' must be an array of Color (optional)
+// 'scales' must be an array of Vec3 (optional)
+stars.setPositions(positionArray);
+stars.setColors(colorArray);
+
+scene.root.addChild(stars);
+```
+
+**Performance Note:** Always resize to the maximum expected count at initialization. Avoid calling `resize()` every frame.
+
+## 6.10 Example: A Complete 3D Scene
 
 ```c
 local scene3d;

@@ -107,7 +107,24 @@ audio.duckMusic(0.5, 0.1);
 audio.unduckMusic(0.5);
 ```
 
-## 7.4 Example: Dynamic Car Engine
+## 7.5 Audio Synthesis (`audio.Synth`)
+
+To support procedural audio generation (common in 4k demos), the console provides a basic synthesizer.
+
+```c
+// Create a synthesizer voice
+// Types: SINE, SQUARE, SAW, TRIANGLE, NOISE
+local osc = audio.Synth(audio.Wave.SAW);
+
+// ADSR Envelope: Attack, Decay, Sustain, Release
+osc.setEnvelope(0.01, 0.1, 0.5, 0.2); 
+
+// Play frequency
+// osc, frequency (Hz), duration (sec)
+audio.playTone(osc, 440.0, 1.0); 
+```
+
+## 7.6 Example: Dynamic Car Engine
 
 This example demonstrates how to use `VoiceID` to modulate a looping engine sound based on game physics.
 

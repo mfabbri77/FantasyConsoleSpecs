@@ -225,3 +225,40 @@ if (gfx.hitTestFill(myButtonPath, mouse.x, mouse.y)) {
     // Handle click
 }
 ```
+
+## 3.15 Custom Shaders (ShaderNode)
+
+For advanced visual effects that require per-pixel manipulation (e.g., plasma, raymarching, Signed Distance Fields), you can use the `ShaderNode`. This allows you to run a custom fragment shader within a specified rectangular region.
+
+### The Shader Language
+The shading language is a strict subset of GLSL ES 3.0.
+*   **Entry Point:** `vec4 fragment(vec2 uv)` where `uv` is normalized 0..1.
+*   **Uniforms:** Supported types: `float`, `vec2`, `vec3`, `vec4`, `sampler2D`.
+
+```c
+// 1. Define Source
+local plasmaSrc = "
+    uniform float time;
+    uniform vec2 res;
+    
+    vec4 fragment(vec2 uv) {
+        float v = sin(uv.x * 10.0 + time) + cos(uv.y * 10.0 + time);
+        float r = sin(v + time) * 0.5 + 0.5;
+        float g = cos(v + time * 0.5) * 0.5 + 0.5;
+        return vec4(r, g, 1.0, 1.0);
+    }
+";
+
+// 2. Create Shader Resource
+local plasmaShader = gfx.Shader.create(plasmaSrc);
+
+// 3. Create Node (x, y, width, height)
+local node = gfx.ShaderNode(plasmaShader, 0, 0, 800, 600);
+
+// 4. Update Uniforms (in update loop)
+node.setUniform("time", state.t);
+node.setUniform("res", Vec2(800, 600));
+
+// 5. Draw
+scene.drawNode(node);
+```
